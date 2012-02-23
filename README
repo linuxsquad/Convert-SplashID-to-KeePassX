@@ -1,0 +1,27 @@
+Convert SplashID DB (v3) into KeepassX XML
+
+ASSUMPTION:
+  keePassX <Last Access> and <Last Modified> time stamp filled with a date and time of conversion
+  SplashID <Description> and <Company> fields merge into keePassX <title>
+  All SplashID fields that does not match main keePassX ones, added to the keePassX <comments>
+  SplashID Creation Date is expected in the following format <November 28, 2009>
+  
+TODO:
+  Some characters have to be replaced (for instance, &) since keePassX refuses to import them
+  If SplashID has no username, check <comment> section for <account> data to substitute
+
+From SplashID website:
+ You may also import and export SplashID records in CSV format.
+ CSV stands for Comma Separated Values, and is a common file format
+ readable by most spreadsheets, databases and word processors.
+ If you wish to import a CSV file, the data must be in the following format:
+
+    Type, Field 1, Field 2, Field 3, Field 4, Field 5, Field 6, Field 7, Field 8, Field 9, Date Modified, Notes, Category
+
+ It is easy to create the above format in Excel by creating a spreadsheet
+ with 13 columns (as designated above) with one record per row.
+ Then save the splashid_export_f in CSV format.
+
+ Note: When importing data, if the type field is blank the record
+ will be placed in Unfiled. If there is a type name and it
+ does not match an existing type a new type will be created.
