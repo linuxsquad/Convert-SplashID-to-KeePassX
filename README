@@ -1,14 +1,25 @@
-Convert SplashID DB (v3) into KeepassX XML
+Convert SplashID DB (v3) into keepassX (keepassx.org) and keePass (keepass.info)
+
+These python scripts can be used to migrate account database from SplashID software into either 
+keePassX or keePass. They confusingly have identical names and share UI resemblance, but these 
+are two differnt programs. keePassX is mostly used on Linux, while keePass dominates 
+MS Windows, iOS and Android share.
+
+The scripts will take SplashID exported database (in native VID format) and convert it into 
+keePassX or keePass XML files, that later can be imported to one of the program.
 
 ASSUMPTION:
-  keePassX <Last Access> and <Last Modified> time stamp filled with a date and time of conversion
-  SplashID <Description> and <Company> fields merge into keePassX <title>
-  All SplashID fields that does not match main keePassX ones, added to the keePassX <comments>
-  SplashID Creation Date is expected in the following format <November 28, 2009>
+  * keePassX <Last Access> and <Last Modified> time stamp filled with a date and time of conversion
+  * SplashID <Description> and <Company> fields merge into keePassX <title>
+  * All SplashID fields that does not match main keePassX ones, added to the keePassX <comments>
+  * All SplashID fields that does not match main keePass ones, added to the keePass <notes>
+  * SplashID Creation Date is expected in the following format <November 28, 2009>
   
 TODO:
-  Some characters have to be replaced (for instance, &) since keePassX refuses to import them
-  If SplashID has no username, check <comment> section for <account> data to substitute
+  * Some characters have to be replaced (for instance, &) since keePassX refuses to import them
+  * If SplashID has no username, check <comment> section for <account> data to substitute
+
+=================
 
 From SplashID website:
  You may also import and export SplashID records in CSV format.
