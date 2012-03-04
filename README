@@ -1,4 +1,4 @@
-Convert SplashID DB (v3) into keepassX (keepassx.org) and keePass (keepass.info)
+Convert SplashID DB into keepassX (keepassx.org) and keePass (keepass.info)
 
 These python scripts can be used to migrate account database from SplashID software into either 
 keePassX or keePass. They confusingly have identical names and share UI resemblance, but these 
@@ -10,14 +10,18 @@ keePassX or keePass XML files, that later can be imported to one of the program.
 
 ASSUMPTION:
   * keePassX <Last Access> and <Last Modified> time stamp filled with a date and time of conversion
-  * SplashID <Description> and <Company> fields merge into keePassX <title>
-  * All SplashID fields that does not match main keePassX ones, added to the keePassX <comments>
-  * All SplashID fields that does not match main keePass ones, added to the keePass <notes>
+  * SplashID <Description> and <Category> fields merge into keePassX <title>
+  * SplashID <Type> is convert into keepass/X <subgroup> 
+  * All SplashID fields that do not match fixed keePassX ones, added to the keePassX <comments>
+  * All SplashID fields that do not match fixed keePass ones, added to the keePass <notes>
   * SplashID Creation Date is expected in the following format <November 28, 2009>
+  * Imported data saved in unicode utf-8 format
+  * During SplashID VID file import, some correction is performed in case mismatch found it T and F fields
   
 TODO:
-  * Some characters have to be replaced (for instance, &) since keePassX refuses to import them
+  
   * If SplashID has no username, check <comment> section for <account> data to substitute
+  * Unicoded is implemented for keePass, push it to keePassX as well.
 
 =================
 
