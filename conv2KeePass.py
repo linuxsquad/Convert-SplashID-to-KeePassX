@@ -145,16 +145,16 @@ for single_record in splashid_value:
 
             xml_entry['notes'][1] += 'comment: {!s}.'.format(repr(single_record[-1]))
             
-            print "  <pwentry>"
-            print "     <group>{}</group>".format(field_names[0])
+            print unicode('  <pwentry>').encode('utf-8')
+            print unicode('    <group>{}</group>'.format(field_names[0]), errors='ignore').encode('utf-8')
 
             for item in sorted( (value,field) for (field,value) in xml_entry.items() ):
                 if item[1] is 'uuid':
-                    print "     <{0}>{1}</{0}>".format(item[1],str(uuid.uuid1()).replace('-',''))
-                else:                    
-                    print "     <{0}>{1}</{0}>".format(item[1], replace_character(item[0][1]).encode("utf-8"))
-            print '     <expiretime expires="false">2999-12-28T23:59:59</expiretime>'
-            print "  </pwentry>"
+                    print unicode('     <{0}>{1}</{0}>'.format(item[1], str(uuid.uuid1()).replace('-','')), errors='ignore').encode('utf-8')
+                else:
+                    print unicode('     <{0}>{1}</{0}>'.format(item[1], replace_character(item[0][1])), errors='ignore').encode('utf-8')
+            print unicode('     <expiretime expires="false">2999-12-28T23:59:59</expiretime>', errors='ignore').encode('utf-8')
+            print unicode('  </pwentry>', errors='ignore').encode('utf-8')
             
         else:
             print single_record, " Not Found"
